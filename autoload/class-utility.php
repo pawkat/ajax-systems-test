@@ -34,7 +34,9 @@ class Utility
      */
     public static function get_tpl($file = '', $vars = [])
     {
-        extract($vars);
+        if (is_array($vars)) {
+            extract($vars);
+        }
 
         $path = PLUGIN_DIR.'/'.$file.'.php';
 

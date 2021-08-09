@@ -1,0 +1,162 @@
+@import "../helpers/all";
+
+.slider {
+  margin: 0 auto;
+
+  .wrapper {
+    max-width: unset;
+    @include md {
+      max-width: 42rem;
+    }
+    @include xl {
+      max-width: 56rem;
+    }
+    @include xxl {
+      max-width: 74.25rem;
+    }
+  }
+
+  &.overflow-hidden {
+    .swiper-container {
+      overflow: visible;
+    }
+  }
+
+  .swiper-container {
+    @include md-max {
+      margin: 0 -.5rem;
+    }
+  }
+
+  .swiper-slide {
+    box-sizing: border-box;
+    padding: 0 .25rem;
+    @include sm {
+      padding: 0 1rem;
+    }
+    @include xl {
+      padding: 0 4rem;
+    }
+    @include xxl {
+      padding: 0 5.125rem;
+    }
+
+    &:not(.swiper-slide-active) {
+      @include md {
+        .slide {
+          &__img {
+            opacity: .3;
+          }
+
+          &__title, &__description, &__link {
+            opacity: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    display: none !important;
+    margin: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: $dark-3;
+    transition: opacity .3s ease;
+    @include xl {
+      display: flex !important;
+      top: calc((56rem - 2rem - 4rem * 2) * 0.55241 / 2);
+    }
+    @include xxl {
+      top: calc((74.25rem - 2rem - 5.125rem * 2) * 0.55241 / 2);
+    }
+  }
+
+  .swiper-button-next {
+    right: 0;
+    transform: translate(50%, -50%);
+    @include xxl {
+      right: -1rem;
+      transform: translate(0, -50%);
+    }
+
+    &:after {
+      @include chevron('right', .6875rem, 2px, $white);
+    }
+  }
+
+  .swiper-button-prev {
+    left: 0;
+    transform: translate(-50%, -50%);
+    @include xxl {
+      left: -1rem;
+      transform: translate(0, -50%);
+    }
+
+    &:after {
+      @include chevron('left', .6875rem, 2px, $white);
+    }
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    display: flex;
+
+    &:after {
+      content: '';
+    }
+
+    &:hover{
+      &:after{
+        transition: border-color .3s ease;
+        border-color: $green-1;
+      }
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+      @include md {
+        margin-bottom: 4rem;
+      }
+      @include xxl {
+        margin-bottom: 6rem;
+      }
+    }
+  }
+}
+
+.slide {
+  &__img {
+    padding-top: 55.241%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 1rem;
+    transition: opacity .3s ease;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+      @include md {
+        margin-bottom: 3rem;
+      }
+    }
+  }
+
+  &__title, &__description, &__link {
+    transition: opacity .3s ease;
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__description {
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

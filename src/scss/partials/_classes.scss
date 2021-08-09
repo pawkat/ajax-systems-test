@@ -1,0 +1,57 @@
+@each $className, $val in $colors {
+  .color-#{$className} {
+    color: $val !important;
+
+    li {
+      &:before {
+        color: inherit !important;
+      }
+    }
+  }
+  .bg-#{$className} {
+    background-color: $val !important;
+  }
+}
+
+$additional_classes: (
+        'text-align': (
+                'propShortName': 'ta',
+                'values': (
+                        'left': left,
+                        'center': center,
+                        'right': right,
+                )
+        ),
+        'overflow': (
+                'propShortName': 'overflow',
+                'values': (
+                        'hidden': hidden,
+                )
+        ),
+);
+
+@each $property, $data in $additional_classes {
+  @each $valShortName, $val in map-get($data, 'values') {
+    .#{map-get($data, 'propShortName')}-#{$valShortName} {
+      #{$property}: $val !important;
+    }
+  }
+  @each $breakpointName, $breakpointValue in $breakpoints {
+    @each $valShortName, $val in map-get($data, 'values') {
+      .#{map-get($data, 'propShortName')}-#{$breakpointName}-#{$valShortName} {
+        @include rmin($breakpointValue) {
+          #{$property}: $val !important;
+        }
+      }
+    }
+  }
+  @each $breakpointName, $breakpointValue in $breakpoints-reversed {
+    @each $valShortName, $val in map-get($data, 'values') {
+      .#{map-get($data, 'propShortName')}-#{$breakpointName}-max-#{$valShortName} {
+        @include r($breakpointValue - 1) {
+          #{$property}: $val !important;
+        }
+      }
+    }
+  }
+}

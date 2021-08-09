@@ -29,9 +29,11 @@ class DeferCSS extends Defer
     public static function register()
     {
         static::$assets = apply_filters('css/register', [
-            'hero'  => '/assets/css/components/hero.min.css',
-            'logos' => '/assets/css/components/logos.min.css',
-            'form'  => '/assets/css/components/form.min.css',
+            'hero'   => '/assets/css/components/hero.min.css',
+            'logos'  => '/assets/css/components/logos.min.css',
+            'form'   => '/assets/css/components/form.min.css',
+            'swiper' => '/assets/css/lib/swiper.min.css',
+            'slider' => '/assets/css/components/slider.min.css',
         ]);
     }
 

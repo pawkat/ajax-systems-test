@@ -35,6 +35,7 @@ class Shortcodes
     {
 
         add_shortcode('hero', __CLASS__.'::hero');
+        add_shortcode('slider', __CLASS__.'::slider');
 
     }
 
@@ -45,6 +46,15 @@ class Shortcodes
     public static function hero($atts)
     {
         return Utility::get_tpl('template-parts/hero', $atts);
+    }
+
+    /**
+     * @param $atts
+     * @return string
+     */
+    public static function slider($atts)
+    {
+        return Utility::get_tpl('template-parts/slider', $atts);
     }
 
 

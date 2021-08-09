@@ -14,8 +14,27 @@ input[type="submit"].btn {
   color: $black;
   background-color: $green-1;
   border-radius: 6.25rem;
+  transition: color .3s ease, background-color .3s ease;
   @include md {
     width: auto;
     padding: .65625rem 5.9375rem;
+  }
+
+  &:hover {
+    background-color: $black;
+    color: $green-1;
+  }
+}
+
+.btn-text {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  font-weight: 500;
+  border-bottom: 2px solid $green-1;
+  text-decoration: none;
+  color: $dark-3;
+
+  &:hover {
+    color: $green-1;
   }
 }

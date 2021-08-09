@@ -1,8 +1,11 @@
 {
     "/assets/js/components/order-form.min.js": "/assets/js/components/order-form.min.js",
+    "/assets/js/components/slider.min.js": "/assets/js/components/slider.min.js",
     "/assets/js/frontend.min.js": "/assets/js/frontend.min.js",
     "/assets/css/frontend.min.css": "/assets/css/frontend.min.css",
     "/assets/css/components/hero.min.css": "/assets/css/components/hero.min.css",
     "/assets/css/components/logos.min.css": "/assets/css/components/logos.min.css",
-    "/assets/css/components/form.min.css": "/assets/css/components/form.min.css"
+    "/assets/css/components/form.min.css": "/assets/css/components/form.min.css",
+    "/assets/css/components/slider.min.css": "/assets/css/components/slider.min.css",
+    "/assets/css/lib/swiper.min.css": "/assets/css/lib/swiper.min.css"
 }

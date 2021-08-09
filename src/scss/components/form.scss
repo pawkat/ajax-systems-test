@@ -39,6 +39,13 @@
   }
 
   &__title {
+    font-size: 1.5rem;
+    line-height: 1.3333;
+    @include xxl {
+      font-size: 2rem;
+      line-height: 1.25;
+    }
+
     &:not(:last-child) {
       margin-bottom: .4rem;
       @include md {
@@ -97,6 +104,15 @@ textarea,
   width: 100%;
   color: $dark-3;
   @include placeholder-color($middle-1);
+  transition: border-color .3s ease;
+
+  &:hover {
+    border-color: $middle-1;
+  }
+
+  &:focus {
+    border-color: $green-1;
+  }
 }
 
 textarea {

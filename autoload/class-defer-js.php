@@ -31,6 +31,13 @@ class DeferJS
             'dependencies'             => []
         ], 'order-form');
 
+        self::register([
+            'src'                      => '/assets/js/components/slider.min.js?ver='.PLUGIN_VERSION,
+            'handle'                   => 'slider',
+            'elSelector'               => '.js-slider',
+            'dependencies'             => []
+        ], 'slider');
+
         do_action('js/register');
     }
 

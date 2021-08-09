@@ -59,7 +59,7 @@ $bg          = PLUGIN_URL.'/assets/img/hero-bg.jpeg';
             <div class="hero__form">
                 <form class="form form_light js-order-form">
                     <div class="form__section">
-                        <div class="form__title h3 ta-center">
+                        <div class="form__title ta-center">
                             <?php echo __('Order now', TEXT_DOMAIN); ?>
                         </div>
                         <p class="form__description caption ta-center">

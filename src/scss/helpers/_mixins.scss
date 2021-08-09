@@ -150,3 +150,17 @@
 // to use:
 //@include font(black, cytiapro-black-webfont)
 
+@mixin chevron($direction:"right", $size: 20px, $width: 1px, $color: black) {
+  display: block;
+  width: $size;
+  height: $size;
+  border-top: 1px solid $color;
+  border-right: 1px solid $color;
+  border-width: $width;
+
+  @if $direction == 'top'    { transform: rotate(-45deg);}
+  @if $direction == 'right'  { transform: translate(-$width, 0) rotate(45deg);}
+  @if $direction == 'bottom' { transform: rotate(135deg);}
+  @if $direction == 'left'   { transform: translate($width, 0) rotate(225deg);}
+
+}
