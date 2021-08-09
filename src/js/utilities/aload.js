@@ -4,6 +4,7 @@ function removeAttr(node, attribute, attributeSet) {
 
     if (node.classList.contains('aload-bg')) {
         node.style.backgroundImage = 'url(' + node.getAttribute(attribute) + ')';
+        node.classList.remove('aload-bg');
     } else {
         node[node.tagName !== 'LINK' ? 'src' : 'href'] = node.getAttribute(attribute);
     }
@@ -50,7 +51,7 @@ export function aload(nodes, loadAlways = false) {
 
         if (node.tagName === 'IMG' || node.tagName === 'IFRAME' || node.classList.contains('aload-bg')) {
             const offset = getOffset(node);
-            if ((offset && (getScrolledBottomCorner() >= offset)) || loadAlways) {
+            if ((offset && (getScrolledBottomCorner() >= offset) && !node.dataset.dontLoadImmediately) || loadAlways) {
                 removeAttr(node, attribute, attributeSet);
             }
         } else {

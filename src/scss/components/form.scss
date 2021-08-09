@@ -1,0 +1,142 @@
+@import "../helpers/all";
+
+.form {
+  $self: &;
+
+  &__section {
+    position: relative;
+    border-radius: 1rem;
+    padding: 2rem 1rem;
+
+    &_p-mob-sm {
+      padding: 1.5rem 1rem;
+    }
+
+    &, &_p-mob-sm {
+      @include sm {
+        padding: 2rem;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 2.375rem;
+
+      &:after {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 6px 5px 0 5px;
+        border-color: $light-2 transparent transparent transparent;
+        opacity: .5;
+        top: calc(100% + 2.375rem / 2);
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: .4rem;
+      @include md {
+        margin-bottom: .6rem;
+      }
+      @include xxl {
+        margin-bottom: .9rem;
+      }
+    }
+  }
+
+  &__description {
+    @include md {
+      padding: 0 1.5rem;
+    }
+    @include xl {
+      padding: 0 3.5rem;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  &__field {
+    &:not(:last-child) {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+
+  &_light {
+    #{$self}__section {
+      background-color: $white;
+      color: $dark-3;
+    }
+
+    #{$self}__description {
+      color: $middle-3;
+    }
+  }
+
+  input[type=submit] {
+    margin: 0 auto;
+  }
+}
+
+input[type=text],
+input[type=tel],
+input[type=email],
+textarea,
+{
+  font-size: 1.125rem;
+  line-height: 1.5;
+  border-bottom: 1px solid $dark-4;
+  width: 100%;
+  color: $dark-3;
+  @include placeholder-color($middle-1);
+}
+
+textarea {
+  min-width: 100%;
+  max-width: 100%;
+}
+
+input[type=checkbox] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+
+  & + label {
+    position: relative;
+    text-align: left;
+    padding-left: 2.25rem;
+    display: block;
+
+    &:before {
+      position: absolute;
+      content: '';
+      display: block;
+      top: 0;
+      left: 0;
+      width: 1.5rem;
+      height: 1.5rem;
+      border: 2px solid $green-1;
+      border-radius: 1px;
+      transition: background-color .3s ease;
+    }
+  }
+
+  &:checked {
+    & + label {
+      &:before {
+        background-color: $green-1;
+      }
+    }
+  }
+}

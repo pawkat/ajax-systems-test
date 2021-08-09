@@ -2,3 +2,20 @@ button, input[type="button"], input[type="submit"] {
   -webkit-appearance: none;
 }
 
+.btn,
+input[type="button"].btn,
+input[type="submit"].btn {
+  display: block;
+  width: 100%;
+  padding: .65625rem 1rem;
+  font-size: .875rem;
+  line-height: 1.428;
+  font-weight: 500;
+  color: $black;
+  background-color: $green-1;
+  border-radius: 6.25rem;
+  @include md {
+    width: auto;
+    padding: .65625rem 5.9375rem;
+  }
+}

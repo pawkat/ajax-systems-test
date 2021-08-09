@@ -2,5 +2,6 @@
 
 !(function ($) {
 
+    console.log('form');
 
 })(jQuery);

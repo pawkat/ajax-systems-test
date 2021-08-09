@@ -1,0 +1,11 @@
+.wrapper {
+  padding: 0 1rem;
+  margin: 0 auto;
+  max-width: 1056px;
+  @include rmin(1400) {
+    max-width: 1256px;
+  }
+  @include rmin(1600) {
+    max-width: 1476px;
+  }
+}

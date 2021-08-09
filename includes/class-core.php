@@ -45,6 +45,15 @@ class Core
             AJAX::instance();
         }
 
+        add_action('init', __CLASS__.'::gutenberg_block');
+
+    }
+
+    public static function gutenberg_block() {
+        register_block_type( 'gutenberg-examples/example-01-basic-esnext', array(
+            'api_version' => 2,
+            'editor_script' => 'gutenberg-examples-01-esnext',
+        ) );
     }
 
     /**

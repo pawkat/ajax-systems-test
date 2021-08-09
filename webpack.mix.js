@@ -52,6 +52,8 @@ mix
 mix
 
     .sass('src/scss/components/hero.scss', 'assets/css/components/hero.min.css')
+    .sass('src/scss/components/logos.scss', 'assets/css/components/logos.min.css')
+    .sass('src/scss/components/form.scss', 'assets/css/components/form.min.css')
     // .sass('src/scss/lib/swiper.scss', 'assets/css/lib/swiper.min.css')
 
     .js('src/js/components/order-form.js', 'assets/js/components/order-form.min.js')

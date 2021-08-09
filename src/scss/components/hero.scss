@@ -1,2 +1,118 @@
 @import "../helpers/all";
 
+.hero {
+  background-color: $black;
+  background-size: auto;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  color: $white;
+  min-height: 100vh;
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+  @include xxl {
+    padding: 6.25rem 0;
+  }
+
+  &__inner {
+    @include md {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
+  &__info, &__form {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__info {
+    &:not(:last-child) {
+      @include md {
+        margin-right: 2rem;
+      }
+      @include xl {
+        margin-right: 7rem;
+      }
+      @include xxl {
+        margin-right: 10.3125rem;
+      }
+    }
+  }
+
+  &__form {
+    @include md {
+      flex-shrink: 0;
+      width: 47.673%;
+      padding-top: 1.25rem;
+    }
+    @include xl {
+      width: 43.673%;
+      padding-top: 0;
+    }
+    @include xxl {
+      width: 37.673%;
+      padding-top: 4.875rem;
+    }
+  }
+
+  &__logos {
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+      @include xl {
+        margin-bottom: 3.75rem;
+      }
+      @include xxl {
+        margin-bottom: 4.25rem;
+      }
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.25em;
+    line-height: 1.5;
+    @include xl {
+      font-size: 1.5rem;
+      line-height: 1.333;
+    }
+    @include xxl {
+      font-size: 2.5rem;
+      line-height: 1.25;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 2.5rem;
+      @include xl {
+        margin-bottom: 2.2rem;
+      }
+    }
+  }
+
+  &__img {
+    margin: -2rem -8rem -2.75rem;
+    @include md {
+      margin: 0;
+      position: absolute;
+      bottom: -2.5%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      width: 100%;
+    }
+
+    img {
+      max-width: 100%;
+      @include lg {
+        max-width: calc(100% + 2.625rem);
+      }
+      @include xxl {
+        max-width: unset;
+      }
+      transition: transform .3s ease, opacity .3s ease;
+
+      &[data-aload] {
+        transform: translate(0, 50%);
+        opacity: 0;
+      }
+    }
+  }
+}
