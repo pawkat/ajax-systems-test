@@ -68,11 +68,11 @@ $bg          = PLUGIN_URL.'/assets/img/hero-bg.jpeg';
                         </p>
                         <div class="form__field">
                             <input type="tel" placeholder="<?php echo __('Phone', TEXT_DOMAIN); ?>" id="phone"
-                                   name="phone"/>
+                                   name="phone" required="required"/>
                         </div>
                         <div class="form__field">
                             <input type="email" placeholder="<?php echo __('Email', TEXT_DOMAIN); ?>" id="email"
-                                   name="email"/>
+                                   name="email" required="required"/>
                         </div>
                         <div class="form__field">
                             <input type="text" placeholder="<?php echo __('Name', TEXT_DOMAIN); ?>" id="name"
@@ -80,11 +80,13 @@ $bg          = PLUGIN_URL.'/assets/img/hero-bg.jpeg';
                         </div>
                     </div>
                     <div class="form__section form__section_p-mob-sm">
-                        <input type="checkbox" id="terms" name="terms" required="required"/>
-                        <label for="terms" class="caption-sm">
-                            <?php echo __('I agree that Ajax Systems and its authorized partners can contact me via email or phone to purchase a security system. The information provided will not be used for other commercial purposes.',
-                                TEXT_DOMAIN); ?>
-                        </label>
+                        <div class="checkbox">
+                            <input type="checkbox" id="terms" name="terms" required="required"/>
+                            <label for="terms" class="caption-sm">
+                                <?php echo __('I agree that Ajax Systems and its authorized partners can contact me via email or phone to purchase a security system. The information provided will not be used for other commercial purposes.',
+                                    TEXT_DOMAIN); ?>
+                            </label>
+                        </div>
                     </div>
                     <input type="submit" class="btn" value="<?php echo __('Order', TEXT_DOMAIN); ?>"/>
                 </form>

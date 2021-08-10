@@ -1,0 +1,128 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Ajax Systems\n"
+"POT-Creation-Date: 2021-08-10 20:14+0300\n"
+"PO-Revision-Date: 2021-08-10 20:14+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: node_modules\n"
+
+#: autoload/class-ajax.php:27
+msgid "403. Nonce is not verified."
+msgstr ""
+
+#: autoload/class-ajax.php:49
+msgid "Data is empty"
+msgstr ""
+
+#: autoload/class-ajax.php:59
+msgid "Data appended successfully!"
+msgstr ""
+
+#: autoload/class-assets.php:135
+msgid "Assets have been successfully refreshed!"
+msgstr ""
+
+#: autoload/class-assets.php:327
+msgid "Refresh assets bundles"
+msgstr ""
+
+#: includes/class-core.php:101
+#, php-format
+msgid "%s theme requires %s plugin to be installed and active."
+msgstr ""
+
+#: includes/class-core.php:164
+#, php-format
+msgid ""
+"Hey! Your server must have at least PHP 7.0. Could you please upgrade. %sGo "
+"back%s"
+msgstr ""
+
+#: includes/class-core.php:172
+#, php-format
+msgid "We need at least Wordpress 5.5. Could you please upgrade. %sGo back%s"
+msgstr ""
+
+#: template-parts/hero.php:16
+msgid "Save 10%"
+msgstr ""
+
+#: template-parts/hero.php:17
+msgid "on a security system and services"
+msgstr ""
+
+#: template-parts/hero.php:18
+#, php-format
+msgid ""
+"<p>Become a Corpo Vigili Giuarati client to get an Ajax system starter kit "
+"with a 10% discount and pay 10% less for security services. It is a perfect "
+"combination of best-in-class equipment and professional alarm monitoring.</"
+"p>\n"
+"<p>Moreover, by purchasing a security system, you can get a tax credit of "
+"50% of the purchase.</p>"
+msgstr ""
+
+#: template-parts/hero.php:63
+msgid "Order now"
+msgstr ""
+
+#: template-parts/hero.php:66
+msgid ""
+"Leave your phone number and email for our experts to contact you shortly."
+msgstr ""
+
+#: template-parts/hero.php:70
+msgid "Phone"
+msgstr ""
+
+#: template-parts/hero.php:74
+msgid "Email"
+msgstr ""
+
+#: template-parts/hero.php:78
+msgid "Name"
+msgstr ""
+
+#: template-parts/hero.php:86
+msgid ""
+"I agree that Ajax Systems and its authorized partners can contact me via "
+"email or phone to purchase a security system. The information provided will "
+"not be used for other commercial purposes."
+msgstr ""
+
+#: template-parts/hero.php:91
+msgid "Order"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "Ajax Systems"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://github.com/pawkat/ajax-systems-test.git"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Pavlo Pashko"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.facebook.com/pashko.p"
+msgstr ""

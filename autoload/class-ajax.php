@@ -14,24 +14,14 @@ class AJAX
     function __construct()
     {
 
-        /**
-         * @example request handler
-         */
-        add_action('wp_ajax_handle_ping', __CLASS__.'::handle_ping');
-        add_action('wp_ajax_nopriv_handle_ping', __CLASS__.'::handle_ping');
-
-        add_action('wp_ajax_get_views', __CLASS__.'::get_views');
-        add_action('wp_ajax_nopriv_get_views', __CLASS__.'::get_views');
-
-        add_action('wp_ajax_load_posts', __CLASS__.'::load_posts');
-        add_action('wp_ajax_nopriv_load_posts', __CLASS__.'::load_posts');
+        add_action('wp_ajax_order_form_submit', __CLASS__.'::order_form_submit');
+        add_action('wp_ajax_nopriv_order_form_submit', __CLASS__.'::order_form_submit');
 
     }
 
 
-    public static function handle_ping()
+    public static function order_form_submit()
     {
-
         if (! wp_verify_nonce($_POST['nonce'], PREFIX)) {
             echo json_encode([
                 'notification' => __('403. Nonce is not verified.', TEXT_DOMAIN)
@@ -42,76 +32,43 @@ class AJAX
         /**
          * Handle request
          */
-        $response = $_POST;
 
-        // code goes here
-
-        /**
-         * Response
-         */
-        echo json_encode($response);
-        wp_die();
-    }
-
-
-    public static function get_views()
-    {
-
-        if (! wp_verify_nonce($_GET['nonce'], PREFIX)) {
+        $data           = array_key_exists('data', $_POST) && is_array($_POST['data']) ? $_POST['data'] : [];
+        $formatted_data = [];
+        if (array_key_exists('name', $data) && $data['name']) {
+            array_push($formatted_data, $data['name']);
+        }
+        if (array_key_exists('email', $data) && $data['email']) {
+            array_push($formatted_data, $data['email']);
+        }
+        if (array_key_exists('phone', $data) && $data['phone']) {
+            array_push($formatted_data, $data['phone']);
+        }
+        if (empty($formatted_data)) {
             echo json_encode([
-                'notification' => __('403. Nonce is not verified.', TEXT_DOMAIN)
+                'notification' => __('Data is empty', TEXT_DOMAIN)
             ]);
             wp_die();
         }
 
-        $post_id = $_GET['post_id'] ? $_GET['post_id'] : 0;
 
-        echo json_encode([
-            'views' => PostTypes::get_post_views($post_id)
-        ]);
-        wp_die();
-    }
-
-
-    public static function load_posts()
-    {
-
-        if (! wp_verify_nonce($_GET['nonce'], PREFIX)) {
+        try {
+            $result   = SpreadsheetAPI::add_row([$formatted_data]);
+            $response = [
+                'result'       => $result,
+                'notification' => __('Data appended successfully!', TEXT_DOMAIN),
+            ];
+            echo json_encode($response);
+            wp_die();
+        } catch (\Exception $e) {
+            $response = json_decode($e->getMessage());
             echo json_encode([
-                'notification' => __('403. Nonce is not verified.', TEXT_DOMAIN)
+                'values'       => array_values($data),
+                'notification' => $response->error->message,
+                'message'      => $e->getMessage()
             ]);
             wp_die();
         }
-
-        $query_args     = $new_query_args = $_GET['query_args'] ? $_GET['query_args'] : false;
-        $template       = $_GET['template'] ? $_GET['template'] : 'post-item-min';
-        $show_post_info = $_GET['show_post_info'] ? $_GET['show_post_info'] : false;
-
-        if ($query_args && is_array($query_args) && ! empty($query_args)) {
-            $query = new \WP_Query($query_args);
-            $posts = false;
-
-            foreach ($query->posts as $post) {
-                $posts .= Utility::get_tpl('template-parts/partials/'.$template, [
-                    'id'             => $post->ID,
-                    'show_post_info' => $show_post_info,
-                ]);
-            }
-
-            $new_query_args['paged']++;
-
-            echo json_encode([
-                'posts'      => $posts,
-                'query_args' => $new_query_args,
-                'hide'       => $query->max_num_pages <= $query->query_vars['paged'],
-            ]);
-            wp_die();
-        }
-
-        echo json_encode([
-            'notification' => __('Something went wrong, try again later.', TEXT_DOMAIN),
-        ]);
-        wp_die();
     }
 
 
